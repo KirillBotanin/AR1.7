@@ -39,6 +39,7 @@
         id="markerA"
       >
         <a-entity
+          gps-entity-place="latitude: 56.887035613700604; longitude: 60.58662598147481;"
           id="bowser-model"
           gltf-model="#bowser"
           position="0 0 0"
@@ -47,8 +48,7 @@
           gesture-handler
         >
         </a-entity>
-      </a-marker>
-      <a-entity camera></a-entity>
+      <a-entity gps-camera rotation-reader></a-entity>
     </a-scene>
   </body>
 </html>
