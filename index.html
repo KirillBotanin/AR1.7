@@ -9,13 +9,13 @@
 
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    <script src="https://unpkg.com/aframe-gps-camera/dist/aframe-gps-camera.min.js"></script>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
   </head>
 
   <body>
     <a-scene
-      arjs
       embedded
       renderer="logarithmicDepthBuffer: true;"
       vr-mode-ui="enabled: false"
@@ -30,24 +30,17 @@
         </a-asset-item>
       </a-assets>
 
-      <a-marker
-        type="pattern"
-        url="pattern-kirieshka.patt"
-        raycaster="objects: .clickable"
-        emitevents="true"
-        cursor="fuse: false; rayOrigin: mouse;"
-        id="markerA"
+      <a-entity
+        gps-entity-place="latitude: 56.887035613700604; longitude: 60.58662598147481;"
+        id="bowser-model"
+        gltf-model="#bowser"
+        position="0 0 0"
+        scale="1 1 1"
+        class="clickable"
+        gesture-handler
       >
-        <a-entity
-          gps-entity-place="latitude: 56.887035613700604; longitude: 60.58662598147481;"
-          id="bowser-model"
-          gltf-model="#bowser"
-          position="0 0 0"
-          scale="1 1 1"
-          class="clickable"
-          gesture-handler
-        >
-        </a-entity>
+      </a-entity>
+
       <a-entity gps-camera rotation-reader></a-entity>
     </a-scene>
   </body>
